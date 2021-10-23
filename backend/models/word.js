@@ -32,7 +32,7 @@ const wordSchema = new mongoose.Schema({
         tulu: String,
         id: Number,
       },
-      definitions: [String],
+      definitions: [{ kannada: [String], english: [String] }],
     },
   ],
   variations: [
