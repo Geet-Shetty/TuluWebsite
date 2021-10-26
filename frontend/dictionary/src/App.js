@@ -6,11 +6,11 @@ import WordHeader from "./components/WordHeader";
 function App() {
   const empty_word = {
     word: {
-      kannada: String,
-      english: String,
-      tulu: String,
-      origin: String,
-      id: Number,
+      kannada: "",
+      english: "",
+      tulu: "",
+      origin: "",
+      id: 0,
     },
     meanings: [
       {
