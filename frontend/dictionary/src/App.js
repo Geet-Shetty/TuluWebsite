@@ -3,6 +3,8 @@ import wordService from "./services/word";
 import { useEffect, useState } from "react";
 import SearchForm from "./components/SearchForm";
 import WordHeader from "./components/WordHeader";
+import Meanings from "./components/Meanings";
+
 function App() {
   const empty_word = {
     word: {
@@ -14,15 +16,20 @@ function App() {
     },
     meanings: [
       {
-        contexts: [String],
+        contexts: [],
         linked_context: {
-          context: String,
-          kannada: String,
-          english: String,
-          tulu: String,
-          id: Number,
+          context: "",
+          kannada: "",
+          english: "",
+          tulu: "",
+          id: 0,
         },
-        definitions: [{ kannada: [String], english: [String] }],
+        definitions: [
+          {
+            kannada: [],
+            english: [],
+          },
+        ],
       },
     ],
     variations: [
@@ -78,7 +85,7 @@ function App() {
         .getWord(id)
         .then((json_word) => {
           setWord(json_word);
-          // console.log(word);
+          console.log(word);
           // console.log(word["word"]);
           // console.log(word.word.english);
           // console.table(word);
@@ -101,7 +108,8 @@ function App() {
         handleIDChange={handleIDChange}
         newID={id}
       />
-      <WordHeader word={word} />
+      <WordHeader word={word.word} />
+      <Meanings meanings={word.meanings} />
     </>
   );
 }
