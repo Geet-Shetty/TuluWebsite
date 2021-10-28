@@ -60,3 +60,22 @@ td {
 /* table {
   border-collapse: collapse;
 } */
+
+p.one_line {
+  height: 100%;
+  width: 10%;
+  display: inline-block;
+  /* border: 1px solid red; */
+}
+
+a:active {
+  color: blue;
+}
+
+a:visited {
+  color: blue;
+}
+
+a:link {
+  text-decoration: none;
+}

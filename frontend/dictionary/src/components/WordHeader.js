@@ -1,7 +1,7 @@
 import React from "react";
 
 let WordHeader = ({ word }) => {
-  console.table(word);
+  // console.table(word);
   let id = word.id ? <sup>{word.id}</sup> : <></>;
   let tulu = word.tulu ? (
     <tr>

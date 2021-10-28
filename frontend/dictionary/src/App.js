@@ -85,7 +85,7 @@ function App() {
         .getWord(id)
         .then((json_word) => {
           setWord(json_word);
-          console.log(word);
+          // console.log(word);
           // console.log(word["word"]);
           // console.log(word.word.english);
           // console.table(word);
@@ -102,7 +102,7 @@ function App() {
   };
 
   return (
-    <>
+    <div class="tulu">
       <SearchForm
         searchID={searchID}
         handleIDChange={handleIDChange}
@@ -110,7 +110,7 @@ function App() {
       />
       <WordHeader word={word.word} />
       <Meanings meanings={word.meanings} />
-    </>
+    </div>
   );
 }
 
