@@ -4,47 +4,13 @@ import { useEffect, useState } from "react";
 import SearchForm from "./components/SearchForm";
 import WordHeader from "./components/WordHeader";
 import Meanings from "./components/Meanings";
+import Variations from "./components/Variations";
 
 function App() {
   const empty_word = {
-    word: {
-      kannada: "",
-      english: "",
-      tulu: "",
-      origin: "",
-      id: 0,
-    },
-    meanings: [
-      {
-        contexts: [],
-        linked_context: {
-          context: "",
-          kannada: "",
-          english: "",
-          tulu: "",
-          id: 0,
-        },
-        definitions: [
-          {
-            kannada: [],
-            english: [],
-          },
-        ],
-      },
-    ],
-    variations: [
-      {
-        origin: String,
-        words: [
-          {
-            kannada: String,
-            english: String,
-            tulu: String,
-            id: Number,
-          },
-        ],
-      },
-    ],
+    word: undefined,
+    meanings: undefined,
+    variations: undefined,
     references: [
       {
         reference: String,
@@ -102,14 +68,20 @@ function App() {
   };
 
   return (
-    <div class="tulu">
-      <SearchForm
-        searchID={searchID}
-        handleIDChange={handleIDChange}
-        newID={id}
-      />
-      <WordHeader word={word.word} />
-      <Meanings meanings={word.meanings} />
+    <div class="page">
+      <div class="search left">
+        <SearchForm
+          searchID={searchID}
+          handleIDChange={handleIDChange}
+          newID={id}
+        />
+      </div>
+
+      <div class="tulu middle">
+        <WordHeader word={word.word} />
+        <Meanings meanings={word.meanings} />
+        <Variations variations={word.variations} />
+      </div>
     </div>
   );
 }

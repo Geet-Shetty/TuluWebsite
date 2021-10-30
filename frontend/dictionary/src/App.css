@@ -47,13 +47,25 @@
 
 .tulu {
   font-family: TuluSri;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
+/* .page {
+  font-family: TuluSri;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} */
 
 th,
 td {
   width: 150px;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 0.5px;
 }
 
@@ -69,13 +81,55 @@ p.one_line {
 }
 
 a:active {
-  color: blue;
+  color: cornflowerblue;
 }
 
 a:visited {
-  color: blue;
+  color: cornflowerblue;
 }
 
 a:link {
   text-decoration: none;
 }
+
+td.thick {
+  font-weight: bold;
+}
+
+/* #root {
+  background-color: #202124;
+  color: #e4e5e7;
+  height: 100vh; 
+} */
+
+* {
+  background-color: #202124;
+  color: #e4e5e7;
+  /* height: 100vh; */
+}
+
+.searchbar {
+  color: #e4e5e7;
+  border-color: #3c3e44;
+  /* border-radius: 3vh; */
+  /* height: 100vh; */
+}
+
+/* #page {
+  text-align: center;
+  position: relative;
+}
+#page:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  height: 200%;
+  width: 1px;
+}
+#page > .left {
+  float: left;
+  width: 100px;
+}
+#page > .middle {
+  display: inline-block;
+} */
