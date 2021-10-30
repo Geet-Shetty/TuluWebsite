@@ -17,6 +17,8 @@ let Meanings = ({ meanings }) => {
           section_header += section.contexts[i] + ", ";
         }
         section_header += section.contexts[i];
+      } else {
+        section_header = undefined;
       }
 
       if (
@@ -35,6 +37,8 @@ let Meanings = ({ meanings }) => {
             {data.tulu} ({data.english})
           </a>
         );
+      } else {
+        linked_word = undefined;
       }
 
       let definitions_pairs = [];
@@ -79,11 +83,20 @@ let Meanings = ({ meanings }) => {
 
       sections.push(
         <>
-          <tr>
+          {section_header === undefined && linked_word === undefined ? (
+            <></>
+          ) : (
+            <tr>
+              <td colSpan={3} class="section_subheader thick">
+                {section_header} {linked_word}
+              </td>
+            </tr>
+          )}
+          {/* <tr>
             <td colSpan={3} class="section_subheader thick">
               {section_header} {linked_word}
             </td>
-          </tr>
+          </tr> */}
           {definitions_pairs}
           {/* <tr>
           <p class="one_line">test1</p>

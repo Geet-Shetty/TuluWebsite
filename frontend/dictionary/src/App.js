@@ -5,6 +5,7 @@ import SearchForm from "./components/SearchForm";
 import WordHeader from "./components/WordHeader";
 import Meanings from "./components/Meanings";
 import Variations from "./components/Variations";
+import References from "./components/References";
 
 function App() {
   const empty_word = {

@@ -88,6 +88,10 @@ a:visited {
   color: cornflowerblue;
 }
 
+a sup {
+  color: cornflowerblue;
+}
+
 a:link {
   text-decoration: none;
 }
