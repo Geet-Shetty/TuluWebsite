@@ -6,26 +6,16 @@ import WordHeader from "./components/WordHeader";
 import Meanings from "./components/Meanings";
 import Variations from "./components/Variations";
 import References from "./components/References";
+import LanguageRefs from "./components/LanguageRefs";
 
 function App() {
   const empty_word = {
     word: undefined,
     meanings: undefined,
     variations: undefined,
-    references: [
-      {
-        reference: String,
-        sentences: [
-          {
-            tulu: String,
-            english: String,
-            kannada: String,
-          },
-        ],
-      },
-    ],
-    examples: [String],
-    language_references: String,
+    references: undefined,
+    examples: undefined,
+    language_refs: undefined,
   };
 
   const [id, setIds] = useState(0);
@@ -52,7 +42,7 @@ function App() {
         .getWord(id)
         .then((json_word) => {
           setWord(json_word);
-          // console.log(word);
+          console.log(word);
           // console.log(word["word"]);
           // console.log(word.word.english);
           // console.table(word);
@@ -82,6 +72,8 @@ function App() {
         <WordHeader word={word.word} />
         <Meanings meanings={word.meanings} />
         <Variations variations={word.variations} />
+        <References references={word.references} />
+        <LanguageRefs language_refs={word.language_refs} />
       </div>
     </div>
   );

@@ -1,47 +1,53 @@
 import React from "react";
 
 let Variations = ({ variations }) => {
-  if (variations !== undefined) {
+  if (variations === undefined) {
+    return <></>;
+  } else {
     let sections = [];
     variations.forEach((section) => {
       let word_list = [];
-      section.words.forEach((word) => {
-        word_list.push(
+      if (section.words.length) {
+        section.words.forEach((word) => {
+          word_list.push(
+            <>
+              {/* <td> */}
+              <a href="" onclick="">
+                {word.id === 0 ? "" : <sup>{word.id}</sup>}
+                {word.tulu}
+              </a>{" "}
+              ({word.english}) <br></br>
+              {/* </td> */}
+            </>
+          );
+        });
+        sections.push(
           <>
-            {/* <td> */}
-            <a href="" onclick="">
-              {word.id === 0 ? "" : <sup>{word.id}</sup>}
-              {word.tulu}
-            </a>{" "}
-            ({word.english}) <br></br>
-            {/* </td> */}
+            {" "}
+            <tr>
+              <th colSpan={1} class="section_subheader">
+                {section.origin}
+              </th>
+              <td>{word_list}</td>
+            </tr>
           </>
         );
-      });
-      sections.push(
+      }
+    });
+    if (sections.length) {
+      return (
         <>
-          {" "}
-          <tr>
-            <td colSpan={1} class="section_subheader thick">
-              {section.origin}
-            </td>
-            <td>{word_list}</td>
-          </tr>
+          <h2 class="section_header">Variations</h2>
+          <table>
+            <th>Origins</th>
+            <th>Words</th>
+            {sections}
+          </table>
         </>
       );
-    });
-    return (
-      <>
-        <h2 class="section_header">Variations</h2>
-        <table>
-          <th>Origins</th>
-          <th>Words</th>
-          {sections}
-        </table>
-      </>
-    );
-  } else {
-    return <></>;
+    } else {
+      return <></>;
+    }
   }
 };
 

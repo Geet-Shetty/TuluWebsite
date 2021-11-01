@@ -63,10 +63,10 @@
 
 th,
 td {
-  width: 150px;
+  width: 200px;
   text-align: center;
   border: 1px solid white;
-  padding: 0.5px;
+  padding: 10px;
 }
 
 /* table {
@@ -110,6 +110,7 @@ td.thick {
   background-color: #202124;
   color: #e4e5e7;
   /* height: 100vh; */
+  font-size: x-large;
 }
 
 .searchbar {

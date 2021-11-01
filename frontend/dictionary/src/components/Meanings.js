@@ -13,7 +13,7 @@ let Meanings = ({ meanings }) => {
       if (keys.includes("contexts") && section.contexts.length !== 0) {
         let i = 0;
         for (; i < section.contexts.length - 1; i++) {
-          console.log(section_header);
+          // console.log(section_header);
           section_header += section.contexts[i] + ", ";
         }
         section_header += section.contexts[i];
@@ -43,7 +43,7 @@ let Meanings = ({ meanings }) => {
 
       let definitions_pairs = [];
       section.definitions.forEach((definition) => {
-        console.log(definition.kannada.map((item) => item + "; "));
+        // console.log(definition.kannada.map((item) => item + "; "));
         let split_k = definition.kannada.map((item) => item + "; ");
         let split_e = definition.english.map((item) => item + "; ");
         let k_string = "";
@@ -66,8 +66,16 @@ let Meanings = ({ meanings }) => {
         definitions_pairs.push(
           <>
             <tr>
-              <td class="kannada">{k_string}</td>
-              <td class="english">{e_string}</td>
+              {k_string.length > 0 ? (
+                <td class="kannada">{k_string}</td>
+              ) : (
+                <></>
+              )}
+              {e_string.length > 0 ? (
+                <td class="english">{e_string}</td>
+              ) : (
+                <></>
+              )}
             </tr>
             {/* <tr>
             <td>{definition.kannada}</td>
@@ -87,9 +95,9 @@ let Meanings = ({ meanings }) => {
             <></>
           ) : (
             <tr>
-              <td colSpan={3} class="section_subheader thick">
+              <th colSpan={3} class="section_subheader">
                 {section_header} {linked_word}
-              </td>
+              </th>
             </tr>
           )}
           {/* <tr>
