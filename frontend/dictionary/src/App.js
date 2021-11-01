@@ -7,6 +7,7 @@ import Meanings from "./components/Meanings";
 import Variations from "./components/Variations";
 import References from "./components/References";
 import LanguageRefs from "./components/LanguageRefs";
+import Examples from "./components/Examples";
 
 function App() {
   const empty_word = {
@@ -73,6 +74,7 @@ function App() {
         <Meanings meanings={word.meanings} />
         <Variations variations={word.variations} />
         <References references={word.references} />
+        <Examples examples={word.examples} />
         <LanguageRefs language_refs={word.language_refs} />
       </div>
     </div>

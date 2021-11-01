@@ -6,9 +6,11 @@ let WordHeader = ({ word }) => {
     let tulu = word.tulu ? (
       <tr>
         <th>Tulu</th>
-        <td class="tulu">
-          {id}
-          {word.tulu}
+        <td class="tulu two">
+          <a class="disabled">
+            {id}
+            {word.tulu}
+          </a>
         </td>
       </tr>
     ) : (
@@ -33,13 +35,13 @@ let WordHeader = ({ word }) => {
       <></>
     );
     return (
-      <>
+      <div id="word">
         <table>
           {tulu}
           {english}
           {origin}
         </table>
-      </>
+      </div>
     );
   } else {
     return <></>;

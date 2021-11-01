@@ -23,7 +23,6 @@ let Variations = ({ variations }) => {
         });
         sections.push(
           <>
-            {" "}
             <tr>
               <th colSpan={1} class="section_subheader">
                 {section.origin}
@@ -36,14 +35,14 @@ let Variations = ({ variations }) => {
     });
     if (sections.length) {
       return (
-        <>
+        <div id="variations">
           <h2 class="section_header">Variations</h2>
           <table>
             <th>Origins</th>
             <th>Words</th>
             {sections}
           </table>
-        </>
+        </div>
       );
     } else {
       return <></>;

@@ -114,10 +114,10 @@ let Meanings = ({ meanings }) => {
       );
     });
     return (
-      <>
+      <div id="meanings">
         <h2 class="section_header">Meanings</h2>
         <table>{sections}</table>
-      </>
+      </div>
     );
   } else {
     return <></>;

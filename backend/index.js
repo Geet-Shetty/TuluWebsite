@@ -55,3 +55,5 @@ console.log(`Server running on port ${PORT}`);
 // {"word.english": "goovu"}
 // {"word.english": /^[\s\S]{20,}$/} // number is len
 // 68495-68079
+//  { variations: { $elemMatch: { origin: "Northen Dialects" } } } // search in array structures
+// { examples: { $size: 3 } } //len of examples array

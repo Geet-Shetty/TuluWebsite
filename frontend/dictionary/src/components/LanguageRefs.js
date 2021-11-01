@@ -5,12 +5,12 @@ let LanguageRefs = ({ language_refs }) => {
     return <></>;
   } else {
     return (
-      <>
+      <div id="language_references">
         <h2 class="section_header">Language References</h2>
         <table>
           <th>{language_refs}</th>
         </table>
-      </>
+      </div>
     );
   }
 };

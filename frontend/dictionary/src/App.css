@@ -73,13 +73,6 @@ td {
   border-collapse: collapse;
 } */
 
-p.one_line {
-  height: 100%;
-  width: 10%;
-  display: inline-block;
-  /* border: 1px solid red; */
-}
-
 a:active {
   color: cornflowerblue;
 }
@@ -94,6 +87,19 @@ a sup {
 
 a:link {
   text-decoration: none;
+}
+
+a.disabled {
+  pointer-events: none;
+  color: #e4e5e7;
+}
+a.disabled {
+  pointer-events: none;
+  color: #e4e5e7;
+}
+
+a.disabled sup {
+  color: #e4e5e7;
 }
 
 td.thick {

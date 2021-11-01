@@ -34,10 +34,10 @@ let References = ({ references }) => {
       }
     });
     return (
-      <>
+      <div id="references">
         <h2 class="section_header">References</h2>
         <table>{sections}</table>
-      </>
+      </div>
     );
   } else {
     return <></>;
