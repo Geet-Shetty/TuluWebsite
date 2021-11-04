@@ -1,13 +1,9 @@
 import "./App.css";
 import wordService from "./services/word";
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
-import WordHeader from "./components/WordHeader";
-import Meanings from "./components/Meanings";
-import Variations from "./components/Variations";
-import References from "./components/References";
-import LanguageRefs from "./components/LanguageRefs";
-import Examples from "./components/Examples";
+import Display from "./components/Display";
 
 function App() {
   const empty_word = {
@@ -60,15 +56,17 @@ function App() {
   };
 
   return (
-    <div class="page">
-      <div class="search left">
-        <SearchForm
-          searchID={searchID}
-          handleIDChange={handleIDChange}
-          newID={id}
-        />
-      </div>
-
+    <>
+      {/* <Switch></Switch> */}
+      <div class="page">
+        <div class="search left">
+          <SearchForm
+            searchID={searchID}
+            handleIDChange={handleIDChange}
+            newID={id}
+          />
+        </div>
+        {/* 
       <div class="tulu middle">
         <WordHeader word={word.word} />
         <Meanings meanings={word.meanings} />
@@ -76,8 +74,10 @@ function App() {
         <References references={word.references} />
         <Examples examples={word.examples} />
         <LanguageRefs language_refs={word.language_refs} />
+      </div> */}
+        <Display word={word} />
       </div>
-    </div>
+    </>
   );
 }
 

@@ -19,25 +19,32 @@ let References = ({ references }) => {
           );
         });
 
-        sections.push(
-          <>
-            <tr>
-              <th colSpan={3} class="section_subheader">
-                {section_header}
-              </th>
-            </tr>
-            {sentences}
-          </>
-        );
+        if (sentences.length !== 0) {
+          sections.push(
+            <>
+              <tr>
+                <th colSpan={3} class="section_subheader">
+                  {section_header}
+                </th>
+              </tr>
+              {sentences}
+            </>
+          );
+        }
       } else {
         return <></>;
       }
     });
     return (
-      <div id="references">
-        <h2 class="section_header">References</h2>
-        <table>{sections}</table>
-      </div>
+      <>
+        {sections.length ? (
+          <div id="references">
+            <h2 class="section_header">References</h2> <table>{sections}</table>
+          </div>
+        ) : (
+          <></>
+        )}
+      </>
     );
   } else {
     return <></>;

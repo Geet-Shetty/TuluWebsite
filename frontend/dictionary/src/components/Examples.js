@@ -4,12 +4,16 @@ let Examples = ({ examples }) => {
   if (examples !== undefined && examples.length > 0) {
     let list = [];
     examples.forEach((example) => {
-      list.push(<li>{example}</li>);
+      list.push(
+        <tr>
+          <td>{example}</td>
+        </tr>
+      );
     });
     return (
       <div id="examples">
         <h2 class="section_header">Examples</h2>
-        <ol>{list}</ol>
+        <table>{list}</table>
       </div>
     );
   } else {
