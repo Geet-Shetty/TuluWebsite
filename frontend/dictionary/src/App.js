@@ -1,7 +1,7 @@
 import "./App.css";
 import wordService from "./services/word";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
 import Display from "./components/Display";
 
@@ -50,34 +50,44 @@ function App() {
       setIds(0);
     }
   };
+
   const handleIDChange = (event) => {
     console.log(event.target.value);
     setIds(event.target.value);
   };
 
   return (
-    <>
-      {/* <Switch></Switch> */}
-      <div class="page">
-        <div class="search left">
-          <SearchForm
-            searchID={searchID}
-            handleIDChange={handleIDChange}
-            newID={id}
-          />
-        </div>
-        {/* 
-      <div class="tulu middle">
-        <WordHeader word={word.word} />
-        <Meanings meanings={word.meanings} />
-        <Variations variations={word.variations} />
-        <References references={word.references} />
-        <Examples examples={word.examples} />
-        <LanguageRefs language_refs={word.language_refs} />
-      </div> */}
-        <Display word={word} />
+    // <>
+    //   <BrowserRouter>
+    //     <Routes>
+    //       <Route
+    //         path="/"
+    //         element={
+    //           <div class="page">
+    //             <div class="search left">
+    //               <SearchForm
+    //                 searchID={searchID}
+    //                 handleIDChange={handleIDChange}
+    //                 newID={id}
+    //               />
+    //             </div>
+    //             <Display word={word} />
+    //           </div>
+    //         }
+    //       ></Route>
+    //     </Routes>
+    //   </BrowserRouter>
+    // </>
+    <div class="page">
+      <div class="search left">
+        <SearchForm
+          searchID={searchID}
+          handleIDChange={handleIDChange}
+          newID={id}
+        />
       </div>
-    </>
+      <Display word={word} />
+    </div>
   );
 }
 

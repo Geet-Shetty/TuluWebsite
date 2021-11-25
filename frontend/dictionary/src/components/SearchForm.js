@@ -6,7 +6,7 @@ let SearchForm = ({ searchID, handleIDChange, newID }) => {
       <h2>Search by ID</h2>
       <form onSubmit={searchID}>
         <div>
-          ID:{" "}
+          ID:
           <input class="searchbar" onChange={handleIDChange} value={newID} />
         </div>
         <div>
