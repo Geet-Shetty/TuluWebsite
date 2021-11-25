@@ -3,6 +3,7 @@ const Express = require("express");
 const Cors = require("cors");
 
 const dotenv = require("dotenv");
+const { mongo } = require("mongoose");
 dotenv.config("./env");
 
 const url = process.env.DB_URL;
@@ -14,6 +15,19 @@ server.use(Express.urlencoded({ extended: true }));
 server.use(Cors());
 
 let collection;
+
+server.get("/searchID", async (request, response) => {
+  try {
+    // let id = new mongo.ObjectId(request.query.term);
+    let id = mongo.ObjectId.createFromHexString(request.query.term);
+    //let result = await collection.findOne({ "word.english": "goovu" });
+    let result = await collection.findOne({ _id: id });
+    response.send(result);
+    collection.findbyID;
+  } catch (e) {
+    response.status(500).send({ message: e.message });
+  }
+});
 
 server.get("/searchTU", async (request, response) => {
   try {
