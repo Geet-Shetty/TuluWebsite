@@ -1,17 +1,11 @@
 import React from "react";
 
-let SearchForm = ({ searchID, handleIDChange, newID }) => {
+let SearchForm = ({ searchID, handleIDChange, newVal }) => {
   return (
-    <div>
-      <h2>Search by ID</h2>
+    <div class="searchbox">
       <form onSubmit={searchID}>
-        <div>
-          ID:
-          <input class="searchbar" onChange={handleIDChange} value={newID} />
-        </div>
-        <div>
-          <button type="submit">find</button>
-        </div>
+        <input class="searchbar" onChange={handleIDChange} value={newVal} />
+        <button type="submit">find</button>
       </form>
     </div>
   );

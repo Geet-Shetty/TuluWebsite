@@ -126,21 +126,19 @@ td.thick {
   /* height: 100vh; */
 }
 
-/* #page {
-  text-align: center;
-  position: relative;
+.grid {
+  display: flex;
+  display: -webkit-flex; /* Support for older browsers */
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 5px;
 }
-#page:after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  height: 200%;
-  width: 1px;
+
+ul.words {
+  list-style-type: none;
 }
-#page > .left {
-  float: left;
-  width: 100px;
+
+.searchbox {
+  display: flex;
+  flex-direction: row;
 }
-#page > .middle {
-  display: inline-block;
-} */

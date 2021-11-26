@@ -3,6 +3,7 @@ import wordService from "./services/word";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
+import SearchType from "./components/SearchType";
 import Display from "./components/Display";
 
 function App() {
@@ -15,8 +16,12 @@ function App() {
     language_refs: undefined,
   };
 
-  const [id, setIds] = useState(0);
+  const empty_word_list = [];
+  const [id, setIds] = useState("");
+  const [term, setTerm] = useState("");
   const [word, setWord] = useState(empty_word);
+  const [word_list, setWordList] = useState(empty_word_list);
+  const [searchMode, setSearchMode] = useState("english");
 
   // const hook = () => {
   //   console.log("effect");
@@ -32,11 +37,12 @@ function App() {
 
   // useEffect(hook, []); // If the second parameter is an empty array [], then the effect is only run along with the first render of the component.
 
+  // const
   const searchID = (event) => {
     event.preventDefault();
     if (id !== 0) {
       wordService
-        .getWord(id)
+        .getWord_byID(id)
         .then((json_word) => {
           setWord(json_word);
           console.log(word);
@@ -47,43 +53,81 @@ function App() {
         .catch((error) => {
           console.log(error);
         });
-      setIds(0);
+      setIds("");
+    }
+  };
+
+  const searchENG = (event) => {
+    event.preventDefault();
+    console.log(term);
+    if (term !== "") {
+      wordService
+        .getWord_ENG(term)
+        .then((json_word_list) => {
+          setWordList(json_word_list);
+          console.log(json_word_list);
+          // console.log(word["word"]);
+          // console.log(word.word.english);
+          // console.table(word);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      setTerm("");
+    }
+  };
+
+  const searchTU = (event) => {
+    event.preventDefault();
+    if (term !== "") {
+      wordService
+        .getWord_TU(term)
+        .then((json_word_list) => {
+          setWordList(json_word_list);
+          console.log(json_word_list);
+          // console.log(word["word"]);
+          // console.log(word.word.english);
+          // console.table(word);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      setTerm("");
     }
   };
 
   const handleIDChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setIds(event.target.value);
   };
 
+  const handleTermChange = (event) => {
+    // console.log(event.target.value);
+    setTerm(event.target.value);
+  };
+
+  const handleModeChange = (event) => {
+    // console.log(event.target.value);
+    setSearchMode(event.target.value);
+    // console.log(term);
+  };
+
   return (
-    // <>
-    //   <BrowserRouter>
-    //     <Routes>
-    //       <Route
-    //         path="/"
-    //         element={
-    //           <div class="page">
-    //             <div class="search left">
-    //               <SearchForm
-    //                 searchID={searchID}
-    //                 handleIDChange={handleIDChange}
-    //                 newID={id}
-    //               />
-    //             </div>
-    //             <Display word={word} />
-    //           </div>
-    //         }
-    //       ></Route>
-    //     </Routes>
-    //   </BrowserRouter>
-    // </>
-    <div class="page">
-      <div class="search left">
+    <div class="grid">
+      <div class="searchbox left">
+        <SearchType handleModeChange={handleModeChange} newMode={searchMode} />
         <SearchForm
-          searchID={searchID}
-          handleIDChange={handleIDChange}
-          newID={id}
+          searchID={
+            searchMode === "id"
+              ? searchID
+              : searchMode === "english"
+              ? searchENG
+              : searchTU
+          }
+          handleIDChange={
+            searchMode === "id" ? handleIDChange : handleTermChange
+          }
+          newVal={searchMode === "id" ? id : term}
         />
       </div>
       <Display word={word} />
