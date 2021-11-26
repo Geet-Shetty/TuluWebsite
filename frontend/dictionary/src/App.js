@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
 import SearchType from "./components/SearchType";
 import Display from "./components/Display";
+import List from "./components/List";
 
 function App() {
   const empty_word = {
@@ -112,23 +113,35 @@ function App() {
     // console.log(term);
   };
 
+  const linkRouter = (id) => {
+    console.log("this ran");
+    setIds(id);
+    return searchID;
+  };
+
   return (
     <div class="grid">
-      <div class="searchbox left">
-        <SearchType handleModeChange={handleModeChange} newMode={searchMode} />
-        <SearchForm
-          searchID={
-            searchMode === "id"
-              ? searchID
-              : searchMode === "english"
-              ? searchENG
-              : searchTU
-          }
-          handleIDChange={
-            searchMode === "id" ? handleIDChange : handleTermChange
-          }
-          newVal={searchMode === "id" ? id : term}
-        />
+      <div class="left">
+        <div class="searchbox">
+          <SearchType
+            handleModeChange={handleModeChange}
+            newMode={searchMode}
+          />
+          <SearchForm
+            searchID={
+              searchMode === "id"
+                ? searchID
+                : searchMode === "english"
+                ? searchENG
+                : searchTU
+            }
+            handleIDChange={
+              searchMode === "id" ? handleIDChange : handleTermChange
+            }
+            newVal={searchMode === "id" ? id : term}
+          />
+        </div>
+        <List word_list={word_list} linkRouter={searchID} />
       </div>
       <Display word={word} />
     </div>

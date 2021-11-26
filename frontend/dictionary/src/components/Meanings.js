@@ -1,4 +1,5 @@
 import React from "react";
+import Word from "./Word";
 
 // add checks to only do things if they are not null/undefined
 let Meanings = ({ meanings }) => {
@@ -33,8 +34,9 @@ let Meanings = ({ meanings }) => {
         }
         linked_word = (
           <a href="" onclick="">
-            {data.id === 0 ? "" : <sup>{data.id}</sup>}
-            {data.tulu} ({data.english})
+            {/* {data.id === 0 ? "" : <sup>{data.id}</sup>}
+            {data.tulu} ({data.english}) */}
+            <Word word={data} />
           </a>
         );
       } else {
