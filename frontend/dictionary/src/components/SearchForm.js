@@ -4,7 +4,11 @@ let SearchForm = ({ searchID, handleIDChange, newVal }) => {
   return (
     <div class="searchbox">
       <form onSubmit={searchID}>
-        <input class="searchbar" onChange={handleIDChange} value={newVal} />
+        <input
+          class="searchbar tulu_font"
+          onChange={handleIDChange}
+          value={newVal}
+        />
         <button type="submit">find</button>
       </form>
     </div>

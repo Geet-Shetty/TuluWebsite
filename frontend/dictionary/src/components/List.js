@@ -6,7 +6,7 @@ let List = ({ word_list, linkRouter }) => {
   let list_elements = [];
   word_list.forEach((element) => {
     list_elements.push(
-      <li>
+      <li class="tulu_font">
         <a href="" onclick={linkRouter} word_id={element._id}>
           <Word word={element.word} />
         </a>

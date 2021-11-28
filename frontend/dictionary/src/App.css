@@ -45,6 +45,10 @@
   unicode-range: U+0D00-0D7F;
 }
 
+.tulu_font {
+  font-family: TuluSri;
+}
+
 .tulu {
   font-family: TuluSri;
   display: flex;

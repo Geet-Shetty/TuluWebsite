@@ -46,25 +46,36 @@ let Meanings = ({ meanings }) => {
       let definitions_pairs = [];
       section.definitions.forEach((definition) => {
         // console.log(definition.kannada.map((item) => item + "; "));
-        let split_k = definition.kannada.map((item) => item + "; ");
-        let split_e = definition.english.map((item) => item + "; ");
+        let def_keys = Object.keys(definition);
+
+        let last_string = "";
         let k_string = "";
-        for (let i = 0; i < split_k.length - 1; i++) {
-          k_string += split_k[i];
-        }
-        let last_string = split_k[split_k.length - 1];
-        if (last_string !== undefined) {
-          k_string += last_string.substring(0, last_string.length - 2);
+        if (def_keys.includes("kannada")) {
+          k_string = "";
+          let split_k = definition.kannada.map((item) => item + "; ");
+          for (let i = 0; i < split_k.length - 1; i++) {
+            k_string += split_k[i];
+          }
+          last_string = split_k[split_k.length - 1];
+          if (last_string !== undefined) {
+            k_string += last_string.substring(0, last_string.length - 2);
+          }
         }
 
         let e_string = "";
-        for (let i = 0; i < split_e.length - 1; i++) {
-          e_string += split_e[i];
+        if (def_keys.includes("english")) {
+          let split_e = definition.english.map((item) => item + "; ");
+
+          e_string = "";
+          for (let i = 0; i < split_e.length - 1; i++) {
+            e_string += split_e[i];
+          }
+          last_string = split_e[split_e.length - 1];
+          if (last_string !== undefined) {
+            e_string += last_string.substring(0, last_string.length - 2);
+          }
         }
-        last_string = split_e[split_e.length - 1];
-        if (last_string !== undefined) {
-          e_string += last_string.substring(0, last_string.length - 2);
-        }
+
         definitions_pairs.push(
           <>
             <tr>

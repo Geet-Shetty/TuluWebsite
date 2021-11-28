@@ -98,7 +98,7 @@ server.get("/searchENG", async (request, response) => {
 server.listen("3001", async () => {
   try {
     await client.connect();
-    collection = client.db("dict_compact").collection("tulus");
+    collection = client.db("dict_compact").collection("words");
   } catch (e) {
     console.error(e);
   }
@@ -113,3 +113,4 @@ server.listen("3001", async () => {
 // // {"meanings.definitions": {$size: 0}}
 // // {"_id": ObjectId('618dd6df4a017e49673caa98')} search by id
 // // {"word.english": "aaya","word.id": 8} search by word and custom id
+//  {"meanings.definitions.english" : { $exists: false }}  // check if section exists
