@@ -1,11 +1,16 @@
 import "./App.css";
 import wordService from "./services/word";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
 import SearchType from "./components/SearchType";
 import Display from "./components/Display";
 import List from "./components/List";
+
+import Invoices from "./components/Invoices";
+import Invoice from "./components/Invoice";
+
+let list = [];
 
 function App() {
   const empty_word = {
@@ -66,6 +71,7 @@ function App() {
         .getWord_ENG(term)
         .then((json_word_list) => {
           setWordList(json_word_list);
+          list = json_word_list;
           console.log(json_word_list);
           // console.log(word["word"]);
           // console.log(word.word.english);
@@ -85,6 +91,7 @@ function App() {
         .getWord_TU(term)
         .then((json_word_list) => {
           setWordList(json_word_list);
+          list = json_word_list;
           console.log(json_word_list);
           // console.log(word["word"]);
           // console.log(word.word.english);
@@ -113,39 +120,54 @@ function App() {
     // console.log(term);
   };
 
-  const linkRouter = (id) => {
-    console.log("this ran");
-    setIds(id);
-    return searchID;
-  };
-
   return (
-    <div class="grid">
-      <div class="left">
-        <div class="searchbox">
-          <SearchType
-            handleModeChange={handleModeChange}
-            newMode={searchMode}
-          />
-          <SearchForm
-            searchID={
-              searchMode === "id"
-                ? searchID
-                : searchMode === "english"
-                ? searchENG
-                : searchTU
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div class="grid">
+              {/* <Link to="/invoice">Invoices</Link> */}
+              <div class="left">
+                <div class="searchbox">
+                  <SearchType
+                    handleModeChange={handleModeChange}
+                    newMode={searchMode}
+                  />
+                  <SearchForm
+                    searchID={
+                      searchMode === "id"
+                        ? searchID
+                        : searchMode === "english"
+                        ? searchENG
+                        : searchTU
+                    }
+                    handleIDChange={
+                      searchMode === "id" ? handleIDChange : handleTermChange
+                    }
+                    newVal={searchMode === "id" ? id : term}
+                  />
+                </div>
+                <List word_list={word_list} />
+              </div>
+              <Outlet />
+            </div>
+          }
+        >
+          <Route
+            index
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>empty</p>
+              </main>
             }
-            handleIDChange={
-              searchMode === "id" ? handleIDChange : handleTermChange
-            }
-            newVal={searchMode === "id" ? id : term}
           />
-        </div>
-        <List word_list={word_list} linkRouter={searchID} />
-      </div>
-      <Display word={word} />
-    </div>
+          <Route path="display/:wordId" element={<Display />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
+export { list };
 export default App;
