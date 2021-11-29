@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import wordService from '../services/word';
-import WordHeader from './WordHeader';
-import Meanings from './Meanings';
-import Variations from './Variations';
-import References from './References';
-import LanguageRefs from './LanguageRefs';
-import Examples from './Examples';
-import { DEFAULT_EMPTY_WORD } from '../utils/constants';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import wordService from "../services/word";
+import WordHeader from "./WordHeader";
+import Meanings from "./Meanings";
+import Variations from "./Variations";
+import References from "./References";
+import LanguageRefs from "./LanguageRefs";
+import Examples from "./Examples";
+import { DEFAULT_EMPTY_WORD } from "../utils/constants";
 
 let Display = () => {
   let params = useParams();
   let wordId = params.wordId;
-  console.log('wordId: ', wordId);
+  console.log("wordId: ", wordId);
 
   const [word, setWord] = useState(DEFAULT_EMPTY_WORD);
 

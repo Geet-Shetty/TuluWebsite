@@ -1,11 +1,11 @@
-import './App.css';
-import wordService from './services/word';
-import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SearchForm from './components/SearchForm';
-import SearchType from './components/SearchType';
-import Display from './components/Display';
-import List from './components/List';
+import "./App.css";
+import wordService from "./services/word";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SearchForm from "./components/SearchForm";
+import SearchType from "./components/SearchType";
+import Display from "./components/Display";
+import List from "./components/List";
 
 function App() {
   const empty_word = {
@@ -18,11 +18,11 @@ function App() {
   };
 
   const empty_word_list = [];
-  const [id, setIds] = useState('');
-  const [term, setTerm] = useState('');
+  const [id, setIds] = useState("");
+  const [term, setTerm] = useState("");
   const [word, setWord] = useState(empty_word);
   const [word_list, setWordList] = useState(empty_word_list);
-  const [searchMode, setSearchMode] = useState('english');
+  const [searchMode, setSearchMode] = useState("english");
 
   // const hook = () => {
   //   console.log("effect");
@@ -54,14 +54,14 @@ function App() {
         .catch((error) => {
           console.log(error);
         });
-      setIds('');
+      setIds("");
     }
   };
 
   const searchENG = (event) => {
     event.preventDefault();
     console.log(term);
-    if (term !== '') {
+    if (term !== "") {
       wordService
         .getWord_ENG(term)
         .then((json_word_list) => {
@@ -74,13 +74,13 @@ function App() {
         .catch((error) => {
           console.log(error);
         });
-      setTerm('');
+      setTerm("");
     }
   };
 
   const searchTU = (event) => {
     event.preventDefault();
-    if (term !== '') {
+    if (term !== "") {
       wordService
         .getWord_TU(term)
         .then((json_word_list) => {
@@ -93,7 +93,7 @@ function App() {
         .catch((error) => {
           console.log(error);
         });
-      setTerm('');
+      setTerm("");
     }
   };
 
@@ -114,7 +114,7 @@ function App() {
   };
 
   const linkRouter = (id) => {
-    console.log('this ran');
+    console.log("this ran");
     setIds(id);
     return searchID;
   };
@@ -129,16 +129,16 @@ function App() {
           />
           <SearchForm
             searchID={
-              searchMode === 'id'
+              searchMode === "id"
                 ? searchID
-                : searchMode === 'english'
+                : searchMode === "english"
                 ? searchENG
                 : searchTU
             }
             handleIDChange={
-              searchMode === 'id' ? handleIDChange : handleTermChange
+              searchMode === "id" ? handleIDChange : handleTermChange
             }
-            newVal={searchMode === 'id' ? id : term}
+            newVal={searchMode === "id" ? id : term}
           />
         </div>
         <List word_list={word_list} linkRouter={searchID} />
