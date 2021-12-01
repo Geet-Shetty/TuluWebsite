@@ -2,10 +2,10 @@ import React from "react";
 
 let SearchForm = ({ searchID, handleIDChange, newVal }) => {
   return (
-    <div class="searchbox">
+    <div className="searchbox">
       <form onSubmit={searchID}>
         <input
-          class="searchbar tulu_font"
+          className="searchbar tulu_font"
           onChange={handleIDChange}
           value={newVal}
         />

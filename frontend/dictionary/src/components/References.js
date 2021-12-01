@@ -39,7 +39,10 @@ let References = ({ references }) => {
       <>
         {sections.length ? (
           <div id="references">
-            <h2 class="section_header">References</h2> <table>{sections}</table>
+            <h2 className="section_header">References</h2>{" "}
+            <table>
+              <tbody>{sections}</tbody>
+            </table>
           </div>
         ) : (
           <></>

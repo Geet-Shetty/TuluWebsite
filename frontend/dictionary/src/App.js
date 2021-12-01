@@ -1,26 +1,18 @@
 import "./App.css";
 import wordService from "./services/word";
-import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
 import SearchType from "./components/SearchType";
 import Display from "./components/Display";
 import List from "./components/List";
+import { DEFAULT_EMPTY_WORD } from "./utils/constants";
 
 function App() {
-  const empty_word = {
-    word: undefined,
-    meanings: undefined,
-    variations: undefined,
-    references: undefined,
-    examples: undefined,
-    language_refs: undefined,
-  };
-
   const empty_word_list = [];
   const [id, setIds] = useState("");
   const [term, setTerm] = useState("");
-  const [word, setWord] = useState(empty_word);
+  const [word, setWord] = useState(DEFAULT_EMPTY_WORD);
   const [word_list, setWordList] = useState(empty_word_list);
   const [searchMode, setSearchMode] = useState("english");
 
@@ -113,16 +105,10 @@ function App() {
     // console.log(term);
   };
 
-  const linkRouter = (id) => {
-    console.log("this ran");
-    setIds(id);
-    return searchID;
-  };
-
   return (
-    <div class="grid">
-      <div class="left">
-        <div class="searchbox">
+    <div className="grid">
+      <div className="left">
+        <div className="searchbox">
           <SearchType
             handleModeChange={handleModeChange}
             newMode={searchMode}

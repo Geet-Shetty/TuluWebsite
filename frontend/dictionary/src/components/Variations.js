@@ -12,7 +12,7 @@ let Variations = ({ variations }) => {
           word_list.push(
             <>
               {/* <td> */}
-              <a href="" onclick="">
+              <a href="" onClick="">
                 {word.id === 0 ? "" : <sup>{word.id}</sup>}
                 {word.tulu}
               </a>{" "}
@@ -36,11 +36,13 @@ let Variations = ({ variations }) => {
     if (sections.length) {
       return (
         <div id="variations">
-          <h2 class="section_header">Variations</h2>
+          <h2 className="section_header">Variations</h2>
           <table>
-            <th>Origins</th>
-            <th>Words</th>
-            {sections}
+            <tbody>
+              <th>Origins</th>
+              <th>Words</th>
+              {sections}
+            </tbody>
           </table>
         </div>
       );

@@ -12,8 +12,10 @@ let Examples = ({ examples }) => {
     });
     return (
       <div id="examples">
-        <h2 class="section_header">Examples</h2>
-        <table>{list}</table>
+        <h2 className="section_header">Examples</h2>
+        <table>
+          <tbody>{list}</tbody>
+        </table>
       </div>
     );
   } else {

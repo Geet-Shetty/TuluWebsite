@@ -80,12 +80,12 @@ let Meanings = ({ meanings }) => {
           <>
             <tr>
               {k_string.length > 0 ? (
-                <td class="kannada">{k_string}</td>
+                <td className="kannada">{k_string}</td>
               ) : (
                 <></>
               )}
               {e_string.length > 0 ? (
-                <td class="english">{e_string}</td>
+                <td className="english">{e_string}</td>
               ) : (
                 <></>
               )}
@@ -128,8 +128,10 @@ let Meanings = ({ meanings }) => {
     });
     return (
       <div id="meanings">
-        <h2 class="section_header">Meanings</h2>
-        <table>{sections}</table>
+        <h2 className="section_header">Meanings</h2>
+        <table>
+          <tbody>{sections}</tbody>
+        </table>
       </div>
     );
   } else {

@@ -6,9 +6,11 @@ let LanguageRefs = ({ language_refs }) => {
   } else {
     return (
       <div id="language_references">
-        <h2 class="section_header">Language References</h2>
+        <h2 className="section_header">Language References</h2>
         <table>
-          <th>{language_refs}</th>
+          <tbody>
+            <th>{language_refs}</th>
+          </tbody>
         </table>
       </div>
     );

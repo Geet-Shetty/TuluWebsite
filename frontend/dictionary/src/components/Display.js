@@ -30,7 +30,7 @@ let Display = () => {
   }, [wordId]);
 
   return (
-    <div class="tulu middle">
+    <div className="tulu middle">
       <WordHeader word={word.word} />
       <Meanings meanings={word.meanings} />
       <Variations variations={word.variations} />
