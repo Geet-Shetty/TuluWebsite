@@ -143,7 +143,13 @@ function App() {
         </div>
         <List word_list={word_list} linkRouter={searchID} />
       </div>
-      <Display word={word} />
+      <Routes>
+        <Route
+          path="/display/:wordId"
+          element={<Display word={word} />}
+        ></Route>
+        <Route path="*" element={<div>404 Path does not exist</div>}></Route>
+      </Routes>
     </div>
   );
 }

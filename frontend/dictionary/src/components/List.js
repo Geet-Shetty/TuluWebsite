@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Word from "./Word";
 
 // add checks to only do things if they are not null/undefined
@@ -15,7 +16,23 @@ let List = ({ word_list, linkRouter }) => {
   });
   return (
     <>
-      <ul class="words">{list_elements}</ul>
+      <ul class="words">
+        {word_list.map((word) => {
+          return (
+            <NavLink
+              style={({ isActive }) => ({
+                display: "block",
+                margin: "1rem 0",
+                color: isActive ? "white" : "",
+              })}
+              to={`/display/${word._id}`}
+              key={word._id}
+            >
+              <Word word={word.word} />
+            </NavLink>
+          );
+        })}
+      </ul>
     </>
   );
 };
