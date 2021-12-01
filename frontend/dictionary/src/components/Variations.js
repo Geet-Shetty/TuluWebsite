@@ -12,7 +12,7 @@ let Variations = ({ variations }) => {
           word_list.push(
             <>
               {/* <td> */}
-              <a href="" onclick="">
+              <a href="" onClick="">
                 {word.id === 0 ? "" : <sup>{word.id}</sup>}
                 {word.tulu}
               </a>{" "}

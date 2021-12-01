@@ -33,7 +33,7 @@ let Meanings = ({ meanings }) => {
           section_header += ", " + data.context + " of ";
         }
         linked_word = (
-          <a href="" onclick="">
+          <a href="" onClick="">
             {/* {data.id === 0 ? "" : <sup>{data.id}</sup>}
             {data.tulu} ({data.english}) */}
             <Word word={data} />

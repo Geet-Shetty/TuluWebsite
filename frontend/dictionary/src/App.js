@@ -80,7 +80,7 @@ function App() {
         .catch((error) => {
           console.log(error);
         });
-      setTerm("");
+      // setTerm("");
     }
   };
 
@@ -154,15 +154,15 @@ function App() {
             </div>
           }
         >
-          <Route
-            index
+          <Route path="/:wordId" element={<Display />} />
+          {/* <Route
+            path="*"
             element={
               <main style={{ padding: "1rem" }}>
                 <p>empty</p>
               </main>
             }
-          />
-          <Route path="display/:wordId" element={<Display />} />
+          /> */}
         </Route>
       </Routes>
     </BrowserRouter>

@@ -9,30 +9,25 @@ let List = ({ word_list }) => {
   useEffect(() => {
     console.log("listhook");
   }, []);
-  let list_elements = [];
-  // console.log(list);
-  word_list.forEach((word) => {
-    list_elements.push(
-      // <li class="tulu_font">
-      //   <a href="" onclick={linkRouter} word_id={element._id}>
-      //     <Word word={element.word} />
-      //   </a>
-      // </li>
-      <NavLink
-        style={({ isActive }) => ({
-          display: "block",
-          margin: "1rem 0",
-          color: isActive ? "white" : "",
-        })}
-        to={`/display/${word._id}`}
-      >
-        <Word word={word.word} />
-      </NavLink>
-    );
-  });
   return (
     <>
-      <ul class="words">{list_elements}</ul>
+      <ul class="words">
+        {word_list.map((word) => {
+          return (
+            <NavLink
+              style={({ isActive }) => ({
+                display: "block",
+                margin: "1rem 0",
+                color: isActive ? "white" : "",
+              })}
+              to={`/${word._id}`}
+              key={word._id}
+            >
+              <Word word={word.word} />
+            </NavLink>
+          );
+        })}
+      </ul>
       <Outlet />
     </>
   );

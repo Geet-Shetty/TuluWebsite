@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 let Display = () => {
+  console.log("display ran");
   let params = useParams();
 
   let empty_word = {
@@ -24,7 +25,6 @@ let Display = () => {
   let [word, setWord] = useState(empty_word);
 
   const hook = () => {
-    console.log("effect ran");
     wordService
       .getWord_byID(params.wordId)
       .then((json_word) => {
@@ -37,7 +37,7 @@ let Display = () => {
       });
   };
 
-  useEffect(hook, []);
+  useEffect(hook, [params.wordId]);
 
   // let test = wordService
   //   .getWord_byID(params.wordId)
