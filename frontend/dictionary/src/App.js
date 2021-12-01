@@ -134,7 +134,7 @@ function App() {
           path="/display/:wordId"
           element={<Display word={word} />}
         ></Route>
-        <Route path="*" element={<div>404 Path does not exist</div>}></Route>
+        <Route path="*" element={<div>Nothing here yet. :P</div>}></Route>
       </Routes>
     </div>
   );
