@@ -9,7 +9,7 @@ let LanguageRefs = ({ language_refs }) => {
         <h2 className="section_header">Language References</h2>
         <table>
           <tbody>
-            <th>{language_refs}</th>
+            <th colSpan={2}>{language_refs}</th>
           </tbody>
         </table>
       </div>

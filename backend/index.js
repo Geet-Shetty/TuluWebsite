@@ -71,7 +71,7 @@ server.get("/searchENG", async (request, response) => {
             index: "searchWords",
             text: {
               query: `${request.query.term}`,
-              path: "word.english",
+              path: ["word.english","meanings.definitions.english"],
               fuzzy: {
                 maxEdits: 2,
                 maxExpansions: 10,

@@ -23,7 +23,7 @@ let References = ({ references }) => {
           sections.push(
             <>
               <tr>
-                <th colSpan={3} class="section_subheader">
+                <th colSpan={3} className="section_subheader">
                   {section_header}
                 </th>
               </tr>
