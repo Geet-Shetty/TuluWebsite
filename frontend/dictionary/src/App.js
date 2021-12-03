@@ -6,7 +6,6 @@ import SearchForm from "./components/SearchForm";
 import SearchType from "./components/SearchType";
 import Display from "./components/Display";
 import List from "./components/List";
-import Word from "./components/Word";
 import { DEFAULT_EMPTY_WORD } from "./utils/constants";
 
 function App() {
@@ -16,20 +15,6 @@ function App() {
   const [word, setWord] = useState(DEFAULT_EMPTY_WORD);
   const [word_list, setWordList] = useState(empty_word_list);
   const [searchMode, setSearchMode] = useState("english");
-
-  // const hook = () => {
-  //   console.log("effect");
-  //   wordService
-  //     .getWord("61738b5eb42847a97ef54158")
-  //     .then((json_word) => {
-  //       setWord(json_word);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // useEffect(hook, []); // If the second parameter is an empty array [], then the effect is only run along with the first render of the component.
 
   const randomWord = (event) => {
     wordService
@@ -126,13 +111,10 @@ function App() {
             newVal={searchMode === "id" ? id : term}
           />
           <NavLink
-            style={({ isActive }) => ({
-              display: "block",
-              color: isActive ? "white" : "cornflowerblue",
-            })}
             onClick={randomWord}
             to={`/display/${id}`}
             key={1234}
+            className="button"
           >
             {"Random"}
           </NavLink>
