@@ -1,11 +1,12 @@
 import "./App.css";
 import wordService from "./services/word";
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
 import SearchType from "./components/SearchType";
 import Display from "./components/Display";
 import List from "./components/List";
+import Word from "./components/Word";
 import { DEFAULT_EMPTY_WORD } from "./utils/constants";
 
 function App() {

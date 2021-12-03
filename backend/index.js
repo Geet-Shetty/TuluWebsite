@@ -29,6 +29,26 @@ server.get("/searchID", async (request, response) => {
   }
 });
 
+server.get("/random", async (request, response) => {
+  try {
+    let result = await collection
+      .aggregate([
+        {
+          $sample: { size: 1 },
+        },
+        {
+          $project: {
+            _id: 1,
+          },
+        },
+      ])
+      .toArray();
+    response.send(result);
+  } catch (e) {
+    response.status(500).send({ message: e.message });
+  }
+});
+
 server.get("/searchTU", async (request, response) => {
   try {
     let result = await collection
@@ -38,7 +58,7 @@ server.get("/searchTU", async (request, response) => {
             index: "searchWords",
             text: {
               query: `${request.query.term}`,
-              path: "word.tulu",
+              path: ["word.english", "word.tulu"],
               fuzzy: {
                 maxEdits: 2,
                 maxExpansions: 10,
@@ -71,7 +91,7 @@ server.get("/searchENG", async (request, response) => {
             index: "searchWords",
             text: {
               query: `${request.query.term}`,
-              path: ["word.english","meanings.definitions.english"],
+              path: "meanings.definitions.english",
               fuzzy: {
                 maxEdits: 2,
                 maxExpansions: 10,
