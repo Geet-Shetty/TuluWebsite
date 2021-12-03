@@ -31,7 +31,18 @@ function App() {
 
   // useEffect(hook, []); // If the second parameter is an empty array [], then the effect is only run along with the first render of the component.
 
-  // const
+  const randomWord = (event) => {
+    wordService
+      .getWord_RAN()
+      .then((json_id) => {
+        console.log(json_id);
+        setIds(json_id._id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const searchID = (event) => {
     event.preventDefault();
     if (id !== 0) {
@@ -40,9 +51,6 @@ function App() {
         .then((json_word) => {
           setWord(json_word);
           console.log(word);
-          // console.log(word["word"]);
-          // console.log(word.word.english);
-          // console.table(word);
         })
         .catch((error) => {
           console.log(error);
@@ -60,9 +68,6 @@ function App() {
         .then((json_word_list) => {
           setWordList(json_word_list);
           console.log(json_word_list);
-          // console.log(word["word"]);
-          // console.log(word.word.english);
-          // console.table(word);
         })
         .catch((error) => {
           console.log(error);
@@ -79,9 +84,6 @@ function App() {
         .then((json_word_list) => {
           setWordList(json_word_list);
           console.log(json_word_list);
-          // console.log(word["word"]);
-          // console.log(word.word.english);
-          // console.table(word);
         })
         .catch((error) => {
           console.log(error);
@@ -91,19 +93,15 @@ function App() {
   };
 
   const handleIDChange = (event) => {
-    // console.log(event.target.value);
     setIds(event.target.value);
   };
 
   const handleTermChange = (event) => {
-    // console.log(event.target.value);
     setTerm(event.target.value);
   };
 
   const handleModeChange = (event) => {
-    // console.log(event.target.value);
     setSearchMode(event.target.value);
-    // console.log(term);
   };
 
   return (
@@ -127,8 +125,19 @@ function App() {
             }
             newVal={searchMode === "id" ? id : term}
           />
+          <NavLink
+            style={({ isActive }) => ({
+              display: "block",
+              color: isActive ? "white" : "cornflowerblue",
+            })}
+            onClick={randomWord}
+            to={`/display/${id}`}
+            key={1234}
+          >
+            {"Random"}
+          </NavLink>
         </div>
-        <List word_list={word_list} linkRouter={searchID} />
+        <List word_list={word_list} />
       </div>
       <Routes>
         <Route

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Word from "./Word";
 
 // add checks to only do things if they are not null/undefined
-let List = ({ word_list, linkRouter }) => {
+let List = ({ word_list }) => {
   return (
     <>
       <ul className="words">
