@@ -8,7 +8,8 @@ one online dictionary (tuludictionary.in) that has Tulu words and phrases writte
 (another South Indian Language). Having the words and phrases not be written in the actual
 Tulu letters was my biggest issue with the site along with it only having an exact search. Due to
 the limitation of the technology at the time the site was created, these drawbacks are
-understandable but were things I wanted to fix.
+understandable but were things I wanted to fix. \n
+
 The goal of this project was to make a prototype website that displayed data in Tulu and
 implemented some modern search features to make a better learning tool. I wanted to learn
 some basic full-stack web development and this was a good chance to try doing a project that is
