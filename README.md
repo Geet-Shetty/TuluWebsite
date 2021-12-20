@@ -1,7 +1,6 @@
 # TuluWebsite
 Using the database created from TuluProject to have a basic dictionary website.
 
-
 Tulu is a South Indian Language that is spoken by about 2 million people and is written using
 the Tigalari alphabet. It was only recently that I started to learn to read and write in it. There
 were many points where I thought a dictionary would be great to have. Currently, there is only
@@ -16,3 +15,5 @@ some basic full-stack web development and this was a good chance to try doing a 
 meaningful to me. I believe that going forward to preserve Tulu knowledge there has to be more
 online tools available to aid people in learning the language, so making a newer dictionary site
 is my way of helping preserve it. 
+
+Read full report [here](https://drive.google.com/file/d/1SXMOLQcICD-JXc3AxQxDa5GOSqCwfHly/view?usp=sharing).
