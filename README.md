@@ -17,4 +17,4 @@ meaningful to me. I believe that going forward to preserve Tulu knowledge there 
 online tools available to aid people in learning the language, so making a newer dictionary site
 is my way of helping preserve it. 
 
-Read full report [here](https://drive.google.com/file/d/1SXMOLQcICD-JXc3AxQxDa5GOSqCwfHly/view?usp=sharing).
+Read full report [here](https://drive.google.com/file/d/1likBQ78DpNv-4QLsmcT-w8BWyQBprGpg/view?usp=sharing).
